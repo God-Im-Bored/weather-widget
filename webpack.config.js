@@ -14,12 +14,14 @@ module.exports = {
     devServer: {
       publicPath: '/',
       contentBase: './public',
-      hot: true
+      hot: true,
+      watchContentBase: true,
+      inline: true
     },
     module: {
         rules: [
             {
-                test: /\.js?$/, 
+                test: /\.js?$/,
                 exclude: /node_modules/, 
                 loader: "babel-loader", 
                 
@@ -28,7 +30,7 @@ module.exports = {
                 test: /\.css$/,
                 use: [
                   'style-loader',
-                  'css-loader'
+                  'css-loader',
                 ]
               }
         ]
