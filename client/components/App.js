@@ -170,8 +170,8 @@ const App = () => {
                       ? thunderstrom
                       : forecast.weather[0].main === "Snow"
                       ? snow
-                      : '/weather-man.png'
-                    : '/weather-man.png'}
+                      : <img src='/weather-man.png'></img>
+                    : <img src='/weather-man.png'></img>}
                 </div>
               </div>
               <div className="weather-info">
