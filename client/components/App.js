@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "react";
+import { fetchLocale } from '../data.js'
 import regeneratorRuntime from "regenerator-runtime";
 import {
   WiCloudy,
@@ -34,11 +35,24 @@ const { clouds, drizzle, rain, clear, snow, thunderstrom } = icons;
 const App = () => {
   const [city, setCity] = useState("");
   const [forecast, setForecast] = useState({});
+  const [locale, setLocale] = useState({})
+  const [weather, setWeather] = useState({})
   const degree = "°F";
   let options = {
     hour: "numeric",
     minute: "numeric",
   };
+
+  useEffect(() => {
+    const fetchAPI = async () => {
+      setLocale(await fetchLocale())
+      setWeather(await fetchLocale())
+    
+    }
+
+    fetchAPI()
+    
+  }, [])
 
   // useEffect(() => {
   //   async function getData() {
@@ -103,6 +117,7 @@ const App = () => {
   };
 
   return (
+    console.log(locale),
     <div
       className={
         typeof forecast.main !== "undefined"
