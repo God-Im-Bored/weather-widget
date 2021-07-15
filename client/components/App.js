@@ -54,19 +54,6 @@ const App = () => {
     
   }, [])
 
-  // useEffect(() => {
-  //   async function getData() {
-  //     const url = `${path}weather?q=${city}&units=imperial&APPID=${key}`
-  //     try {
-  //       const res = await axios.get(url)
-  //       setForecast(res.data)
-  //     } catch (err) {
-  //       console.log(err)
-  //     }
-
-  //   }
-  //   getData()
-  // }, [])
 
   const search = async (e) => {
     if (e.key === "Enter") {
@@ -76,7 +63,7 @@ const App = () => {
         );
         const forecast = await res.json();
         await setForecast(forecast);
-        console.log(333, forecast);
+        // console.log(333, forecast);
         setCity("");
       } catch (err) {
         console.log("GET request failed", err);
@@ -117,7 +104,7 @@ const App = () => {
   };
 
   return (
-    console.log(locale),
+    // console.log(locale),
     <div
       className={
         typeof forecast.main !== "undefined"

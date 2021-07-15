@@ -16,7 +16,6 @@
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "axios": "^0.21.1",
     "express": "^4.17.1",
-    "firebase-tools": "^9.4.0",
     "jquery": "^3.6.0",
     "morgan": "^1.10.0",
     "react": "^17.0.1",
