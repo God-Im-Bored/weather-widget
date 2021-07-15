@@ -5,8 +5,8 @@ const app = express();
 
 app.use(function (req, res, next) {
   res.setHeader(
-    'Content-Security-Policy-Report-Only',
-    "default-src 'self'; font-src 'self'; img-src 'self'; script-src 'self' http://ip-api.com/json/; style-src 'self'; frame-src 'self'"
+    'Content-Security-Policy: upgrade-insecure-requests; default-src https:',
+    'Content-Security-Policy-Report-Only: default-src https:; report-uri /endpoint'
   );
   next();
 });
