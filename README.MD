@@ -1,4 +1,4 @@
-# Illinois COVID-19 Dashboard
+# Weather Widget
 
 This project is used to display the current weather based on the user's location and allows the user to search for another city's forecast.
 
