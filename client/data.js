@@ -13,7 +13,7 @@ export const fetchLocale = async () => {
   
 
   const response =
-    await axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${key}
+    await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${key}
     `);
     
   return response.data

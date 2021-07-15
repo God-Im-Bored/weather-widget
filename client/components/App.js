@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "react";
 import { fetchLocale } from "../data.js";
 import regeneratorRuntime from "regenerator-runtime";
 import {
@@ -60,7 +59,7 @@ const App = () => {
         );
         const forecast = await res.json();
         await setForecast(forecast);
-        // console.log(333, forecast);
+        
         setCity("");
       } catch (err) {
         console.log("GET request failed", err);
@@ -101,7 +100,7 @@ const App = () => {
   };
 
   return (
-    console.log(locale),
+    
     (
       <div
         className={
