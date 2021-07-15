@@ -104,7 +104,7 @@ const App = () => {
   };
 
   return (
-    // console.log(locale),
+    console.log(locale),
     <div
       className={
         typeof forecast.main !== "undefined"

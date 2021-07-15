@@ -23,6 +23,7 @@ npm install
 To run the application
 
 ```JavaScript
+npm run build-watch
 npm start
 Navigate to http://localhost:8080/
 ```

@@ -14,8 +14,7 @@ export const fetchLocale = async () => {
     await axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=c9657622c49b4e5a1e7254bbe26f56ed
     `);
 
-    
-
+      console.log(res.data)
   return {
     1: res.data,
     2: response.data,
