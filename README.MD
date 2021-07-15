@@ -24,7 +24,7 @@ To run the application
 
 ```JavaScript
 npm run build-watch
-npm start
+npm run start-server
 Navigate to http://localhost:8080/
 ```
 

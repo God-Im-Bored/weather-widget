@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --open",
+    "start-server": "node server.js & npm run start",
     "build-watch": "webpack -w",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,11 +16,13 @@
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "http": "0.0.1-security",
     "http-proxy": "^1.18.1",
     "jquery": "^3.6.0",
     "morgan": "^1.10.0",
+    "path": "^0.12.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "regenerator-runtime": "^0.13.7",
