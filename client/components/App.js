@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "react";
-import { fetchLocale } from '../data.js'
+import { fetchLocale } from "../data.js";
 import regeneratorRuntime from "regenerator-runtime";
 import {
   WiCloudy,
@@ -35,8 +35,8 @@ const { clouds, drizzle, rain, clear, snow, thunderstrom } = icons;
 const App = () => {
   const [city, setCity] = useState("");
   const [forecast, setForecast] = useState({});
-  const [locale, setLocale] = useState({})
-  const [weather, setWeather] = useState({})
+  const [locale, setLocale] = useState({});
+  const [weather, setWeather] = useState({});
   const degree = "°F";
   let options = {
     hour: "numeric",
@@ -45,15 +45,12 @@ const App = () => {
 
   useEffect(() => {
     const fetchAPI = async () => {
-      setLocale(await fetchLocale())
-      setWeather(await fetchLocale())
-    
-    }
+      setLocale(await fetchLocale());
+      setWeather(await fetchLocale());
+    };
 
-    fetchAPI()
-    
-  }, [])
-
+    fetchAPI();
+  }, []);
 
   const search = async (e) => {
     if (e.key === "Enter") {
@@ -105,117 +102,212 @@ const App = () => {
 
   return (
     console.log(locale),
-    <div
-      className={
-        typeof forecast.main !== "undefined"
-          ? forecast.weather[0].main === "Clear"
-            ? "app-body-clear"
-            : forecast.weather[0].main === "Rain"
-            ? "app-body-rain"
-            : forecast.weather[0].main === "Drizzle"
-            ? "app-body-drizzle"
-            : forecast.weather[0].main === "Thunderstorm"
-            ? "app-body-tunderstorm"
-            : forecast.weather[0].main === "Snow"
-            ? "app-body-snow"
-            : forecast.weather[0].main === "Clouds"
-            ? "app-body-clody"
+    (
+      <div
+        className={
+          typeof forecast.main !== "undefined" && forecast
+            ? forecast.weather[0].main === "Clear"
+              ? "app-body-clear"
+              : forecast.weather[0].main === "Rain"
+              ? "app-body-rain"
+              : forecast.weather[0].main === "Drizzle"
+              ? "app-body-drizzle"
+              : forecast.weather[0].main === "Thunderstorm"
+              ? "app-body-tunderstorm"
+              : forecast.weather[0].main === "Snow"
+              ? "app-body-snow"
+              : forecast.weather[0].main === "Clouds"
+              ? "app-body-clody"
+              : "app-body-main"
             : "app-body-main"
-          : "app-body-main"
-      }
-    >
-      <main>
-        <div className="search-box">
-          <input
-            type="text"
-            className="search-bar"
-            placeholder="Enter City..."
-            onChange={(e) => setCity(e.target.value)}
-            value={city}
-            onKeyPress={search}
-          />
-        </div>
-        {typeof forecast.main != "undefined" ? (
-          <div>
-            <div className="location-body">
-              <div className="time-body">
-                <div className="time">
-                  {new Intl.DateTimeFormat([], options).format(new Date())}
+        }
+      >
+        <main>
+          <div className="search-box">
+            <input
+              type="text"
+              className="search-bar"
+              placeholder="Enter City..."
+              onChange={(e) => setCity(e.target.value)}
+              value={city}
+              onKeyPress={search}
+            />
+          </div>
+          {typeof forecast.main != "undefined" ? (
+            <div>
+              <div className="location-body">
+                <div className="time-body">
+                  <div className="time">
+                    {new Intl.DateTimeFormat([], options).format(new Date())}
+                  </div>
+                  <div className="day">{getDate(new Date())}</div>
                 </div>
-                <div className="day">{getDate(new Date())}</div>
-              </div>
 
-              <div className="location">
-                {forecast.name}, {forecast.sys.country}{" "}
-              </div>
-            </div>
-
-            <div className="weather-body">
-              <div className="temp">
-                {Math.ceil(forecast.main.temp)}
-                {degree}
-              </div>
-
-              <div className="weather-desc">{forecast.weather[0].main}</div>
-              <div className="png">
-                <div id="icon">
-                  {typeof forecast.main !== "undefined"
-                    ? forecast.weather[0].main === "Clear"
-                      ? clear
-                      : forecast.weather[0].main === "Rain"
-                      ? rain
-                      : forecast.weather[0].main === "Drizzle"
-                      ? drizzle
-                      : forecast.weather[0].main === "Clouds"
-                      ? clouds
-                      : forecast.weather[0].main === "Thunderstorm"
-                      ? thunderstrom
-                      : forecast.weather[0].main === "Snow"
-                      ? snow
-                      : <img src='/weather-man.png'></img>
-                    : <img src='/weather-man.png'></img>}
+                <div className="location">
+                  {forecast.name}, {forecast.sys.country}{" "}
                 </div>
               </div>
-              <div className="weather-info">
-                <div>
-                  Feels Like: {Math.ceil(forecast.main.feels_like)}
+
+              <div className="weather-body">
+                <div className="temp">
+                  {Math.ceil(forecast.main.temp)}
                   {degree}
                 </div>
 
-                <div>
-                  <span>
-                    H<WiDirectionUp size={15} color="#FFF" />{" "}
-                    {Math.ceil(forecast.main.temp_max)}
-                    {degree}
-                  </span>
-                  <br></br>
-                  <span>
-                    L<WiDirectionDown size={20} color="#FFF" />
-                    {Math.ceil(forecast.main.temp_min)}
-                    {degree}
-                  </span>
+                <div className="weather-desc">{forecast.weather[0].main}</div>
+                <div className="png">
+                  <div id="icon">
+                    {typeof forecast.main !== "undefined" ? (
+                      forecast.weather[0].main === "Clear" ? (
+                        clear
+                      ) : forecast.weather[0].main === "Rain" ? (
+                        rain
+                      ) : forecast.weather[0].main === "Drizzle" ? (
+                        drizzle
+                      ) : forecast.weather[0].main === "Clouds" ? (
+                        clouds
+                      ) : forecast.weather[0].main === "Thunderstorm" ? (
+                        thunderstrom
+                      ) : forecast.weather[0].main === "Snow" ? (
+                        snow
+                      ) : (
+                        <img src="/weather-man.png"></img>
+                      )
+                    ) : (
+                      <img src="/weather-man.png"></img>
+                    )}
+                  </div>
                 </div>
+                <div className="weather-info">
+                  <div>
+                    Feels Like: {Math.ceil(forecast.main.feels_like)}
+                    {degree}
+                  </div>
 
-                <h3>
-                  <WiSunrise size={35} color="#FFF" />
-                  Sunrise:{" "}
-                  {new Date(forecast.sys.sunrise * 1000).toLocaleTimeString()}
-                </h3>
-                <h3>
-                  <WiSunset size={35} color="#FFF" />
-                  Sunset:{" "}
-                  {new Date(forecast.sys.sunset * 1000).toLocaleTimeString()}
-                </h3>
+                  <div>
+                    <span>
+                      H<WiDirectionUp size={15} color="#FFF" />{" "}
+                      {Math.ceil(forecast.main.temp_max)}
+                      {degree}
+                    </span>
+                    <br></br>
+                    <span>
+                      L<WiDirectionDown size={20} color="#FFF" />
+                      {Math.ceil(forecast.main.temp_min)}
+                      {degree}
+                    </span>
+                  </div>
+
+                  <h3>
+                    <WiSunrise size={35} color="#FFF" />
+                    Sunrise:{" "}
+                    {new Date(forecast.sys.sunrise * 1000).toLocaleTimeString()}
+                  </h3>
+                  <h3>
+                    <WiSunset size={35} color="#FFF" />
+                    Sunset:{" "}
+                    {new Date(forecast.sys.sunset * 1000).toLocaleTimeString()}
+                  </h3>
+                </div>
               </div>
             </div>
-          </div>
-        ) : (
-          <div className="instructions">
-            Search the name of a city to find the corresponding forecast.
-          </div>
-        )}
-      </main>
-    </div>
+          ) : (
+            <div>
+              {/* {locale ? locale.name : 'hey'} */}
+              {typeof locale.main != "undefined" && locale.sys ? (
+                <div>
+                  <div className="location-body">
+                    <div className="time-body">
+                      <div className="time">
+                        {new Intl.DateTimeFormat([], options).format(
+                          new Date()
+                        )}
+                      </div>
+                      <div className="day">{getDate(new Date())}</div>
+                    </div>
+
+                    <div className="location">
+                      {locale.name}, {locale.sys.country}{" "}
+                    </div>
+                  </div>
+
+                  <div className="weather-body">
+                    <div className="temp">
+                      {Math.ceil(locale.main.temp)}
+                      {degree}
+                    </div>
+
+                    <div className="weather-desc">{locale.weather[0].main}</div>
+                    <div className="png">
+                      <div id="icon">
+                        {typeof locale.main !== "undefined" ? (
+                          locale.weather[0].main === "Clear" ? (
+                            clear
+                          ) : locale.weather[0].main === "Rain" ? (
+                            rain
+                          ) : locale.weather[0].main === "Drizzle" ? (
+                            drizzle
+                          ) : locale.weather[0].main === "Clouds" ? (
+                            clouds
+                          ) : locale.weather[0].main === "Thunderstorm" ? (
+                            thunderstrom
+                          ) : locale.weather[0].main === "Snow" ? (
+                            snow
+                          ) : (
+                            <img src="/weather-man.png"></img>
+                          )
+                        ) : (
+                          <img src="/weather-man.png"></img>
+                        )}
+                      </div>
+                    </div>
+                    <div className="weather-info">
+                      <div>
+                        Feels Like: {Math.ceil(locale.main.feels_like)}
+                        {degree}
+                      </div>
+
+                      <div>
+                        <span>
+                          H<WiDirectionUp size={15} color="#FFF" />{" "}
+                          {Math.ceil(locale.main.temp_max)}
+                          {degree}
+                        </span>
+                        <br></br>
+                        <span>
+                          L<WiDirectionDown size={20} color="#FFF" />
+                          {Math.ceil(locale.main.temp_min)}
+                          {degree}
+                        </span>
+                      </div>
+
+                      <h3>
+                        <WiSunrise size={35} color="#FFF" />
+                        Sunrise:{" "}
+                        {new Date(
+                          locale.sys.sunrise * 1000
+                        ).toLocaleTimeString()}
+                      </h3>
+                      <h3>
+                        <WiSunset size={35} color="#FFF" />
+                        Sunset:{" "}
+                        {new Date(
+                          locale.sys.sunset * 1000
+                        ).toLocaleTimeString()}
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="instructions">
+                  Search the name of a city to find the corresponding forecast.{" "}
+                </div>
+              )}
+            </div>
+          )}
+        </main>
+      </div>
+    )
   );
 };
 
