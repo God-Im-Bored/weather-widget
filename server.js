@@ -6,7 +6,7 @@ const app = express();
 app.use(cors())
 
 app.use(function (req, res, next) {
-  res.set("Content-Security-Policy", "default-src 'self'");
+    res.setHeader("content-security-policy-report-only", "default-src 'self'; font-src 'self' data: https://maxcdn.bootstrapcdn.com; img-src 'self' http://c0nrad.io; object-src 'none'; script-src 'report-sample' 'self'; style-src 'report-sample' 'self' https://maxcdn.bootstrapcdn.com; base-uri 'none'; report-uri http://ip-api.com/json/;");
   next();
 });
 
