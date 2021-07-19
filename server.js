@@ -1,4 +1,5 @@
 const express = require('express');
+const helmet = require("helmet")
 const path = require('path');
 const cors = require('cors')
 const app = express();
@@ -35,6 +36,10 @@ app.use(express.static(path.join(__dirname)));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/public/index.html'));
 });
+
+app.get('/p-api.com/json', (req, res) => {
+    console.log(req.body)
+})
 
 const server = app.listen(process.env.PORT || 5500, () => {
   const { port } = server.address();

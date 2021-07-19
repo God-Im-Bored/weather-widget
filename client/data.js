@@ -3,7 +3,7 @@ import $ from 'jquery'
 import "regenerator-runtime/runtime";
 
 const key = "c9657622c49b4e5a1e7254bbe26f56ed";
-const getIP = "https://ip-api.com/json/";
+const getIP = "http://ip-api.com/json/";
 const openWeatherMap = "http://api.openweathermap.org/data/2.5/weather";
 
 export const fetchLocale = async () => {
