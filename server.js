@@ -4,12 +4,31 @@ const cors = require('cors')
 const app = express();
 
 app.use(cors())
+app.use(helmet());
 
 app.use(function (req, res, next) {
-    res.setHeader("content-security-policy-report-only", "default-src 'self'; font-src 'self' data: https://maxcdn.bootstrapcdn.com; img-src 'self' http://c0nrad.io; object-src 'none'; script-src 'report-sample' 'self'; style-src 'report-sample' 'self' https://maxcdn.bootstrapcdn.com; base-uri 'none'; report-uri http://ip-api.com/json/;");
-  next();
-});
-
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'OPTIONS, GET,PUT,POST,DELETE');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    if (!/https/.test(req.protocol)) {
+      return res.redirect("https://" + req.headers.host + req.url);
+    } else {
+      return next();
+    }
+  });
+  
+  app.use(serveStatic(__dirname + '/client', {
+    maxAge: 86400,
+    index: ['index.html'],
+    setHeaders: function setHeader(res, path) {
+      if (mime.lookup(path) === 'text/html') {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header('Access-Control-Allow-Methods', 'OPTIONS, GET,PUT,POST,DELETE');
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        res.setHeader('Cache-Control', 'public, max-age=0');
+      }
+    }
+  }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 
