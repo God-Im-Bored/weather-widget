@@ -3,12 +3,12 @@ import $ from 'jquery'
 import "regenerator-runtime/runtime";
 
 const key = "c9657622c49b4e5a1e7254bbe26f56ed";
-const getIP = "http://ip-api.com/json/";
+const getIP = "https://ipapi.co/8.8.8.8/json/";
 const openWeatherMap = "http://api.openweathermap.org/data/2.5/weather";
 
 export const fetchLocale = async () => {
   const res = await axios.get(getIP);
-  const { lat, lon } = res.data;
+  const { latitude, longitude } = res.data;
 
   // $.getJSON(getIP).done(function (location) {
   //   // console.log(location)
@@ -26,7 +26,7 @@ export const fetchLocale = async () => {
   
 
   const response =
-    await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${key}
+    await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${key}
     `);
     console.log('response.data', response.data)
   return response.data
