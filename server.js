@@ -34,10 +34,11 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 
 app.get('/', (req, res) => {
+    console.log(req.body)
   res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
-app.get('/p-api.com/json', (req, res) => {
+app.get('/ip-api.com/json', (req, res) => {
     console.log(req.body)
 })
 
