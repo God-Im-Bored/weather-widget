@@ -7,6 +7,17 @@ const app = express();
 app.use(cors())
 app.use(helmet());
 
+app.enable('trust proxy')
+
+app.use(function(request, response, next) {
+
+    if (process.env.NODE_ENV != 'development' && !request.secure) {
+       return response.redirect("https://" + request.headers.host + request.url);
+    }
+
+    next();
+})
+
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header('Access-Control-Allow-Methods', 'OPTIONS, GET,PUT,POST,DELETE');
