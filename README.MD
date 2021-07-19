@@ -38,7 +38,7 @@ Navigate to http://localhost:8080/
 
 ## Data From
 * [OpenWeather API](https://openweathermap.org/api) - current weather data
-* [IP-API](https://ip-api.com/docs/api:json#test) - geolocation lookup
+* [IPAPI](https://ipapi.co/api/) - geolocation lookup
 
 ## Developer
 * [Aram Martin](https://www.linkedin.com/in/aram-martin/) - LinkedIn

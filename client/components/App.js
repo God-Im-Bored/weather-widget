@@ -100,26 +100,11 @@ const App = () => {
   };
 
   return (
+    console.log(locale, forecast),
     
     (
       <div
-        className={
-          typeof forecast.main !== "undefined" && forecast
-            ? forecast.weather[0].main === "Clear"
-              ? "app-body-clear"
-              : forecast.weather[0].main === "Rain"
-              ? "app-body-rain"
-              : forecast.weather[0].main === "Drizzle"
-              ? "app-body-drizzle"
-              : forecast.weather[0].main === "Thunderstorm"
-              ? "app-body-tunderstorm"
-              : forecast.weather[0].main === "Snow"
-              ? "app-body-snow"
-              : forecast.weather[0].main === "Clouds"
-              ? "app-body-clody"
-              : "app-body-main"
-            : "app-body-main"
-        }
+       
       >
         <main>
           <div className="search-box">
@@ -133,7 +118,23 @@ const App = () => {
             />
           </div>
           {typeof forecast.main != "undefined" ? (
-            <div>
+            <div  className={
+              typeof forecast.main !== "undefined" && forecast
+                ? forecast.weather[0].main === "Clear"
+                  ? "app-body-clear"
+                  : forecast.weather[0].main === "Rain"
+                  ? "app-body-rain"
+                  : forecast.weather[0].main === "Drizzle"
+                  ? "app-body-drizzle"
+                  : forecast.weather[0].main === "Thunderstorm"
+                  ? "app-body-tunderstorm"
+                  : forecast.weather[0].main === "Snow"
+                  ? "app-body-snow"
+                  : forecast.weather[0].main === "Clouds"
+                  ? "app-body-clody"
+                  : "app-body-main"
+                : "app-body-main"
+            }>
               <div className="location-body">
                 <div className="time-body">
                   <div className="time">
@@ -211,10 +212,26 @@ const App = () => {
               </div>
             </div>
           ) : (
-            <div>
-              {/* {locale ? locale.name : 'hey'} */}
+            <div className={
+              typeof locale.main !== "undefined" && locale
+                ? locale.weather[0].main === "Clear"
+                  ? "app-body-clear"
+                  : locale.weather[0].main === "Rain"
+                  ? "app-body-rain"
+                  : locale.weather[0].main === "Drizzle"
+                  ? "app-body-drizzle"
+                  : locale.weather[0].main === "Thunderstorm"
+                  ? "app-body-tunderstorm"
+                  : locale.weather[0].main === "Snow"
+                  ? "app-body-snow"
+                  : locale.weather[0].main === "Clouds"
+                  ? "app-body-clody"
+                  : "app-body-main"
+                : "app-body-main"
+            }>
+             
               {typeof locale.main != "undefined" && locale.sys ? (
-                <div>
+                <div >
                   <div className="location-body">
                     <div className="time-body">
                       <div className="time">
