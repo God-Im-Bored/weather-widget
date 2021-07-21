@@ -15,7 +15,7 @@ main {
     rgba(0, 0, 0, 0.2),
     rgba(0, 0, 0, 0.1)
   );
-  padding: 25px;
+  /* padding: 25px; */
 }
 
 span {
@@ -23,61 +23,90 @@ span {
 }
 
 .app-body-snow {
-  background: radial-gradient(
-    farthest-corner at 30vw 20vh,
-    #c7d3dd 1%,
-    #7786ea 100%
-  );
+  background-image: url('./assets/snow.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
+  min-height: 100vh;
+  padding: 25px;
+  image-rendering: auto;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
   transition: 0.4 ease-out;
 }
 
 .app-body-clear {
-  background: radial-gradient(
-    farthest-corner at 5vw 10vh,
-    #ffcb47 8%,
-    #76bed0 35%
-  );
+  background-image: url('./assets/clear.jpg');
   background-size: cover;
-  background-position: bottom;
-  transition: 0.4 ease-out;
+  background-position: center;
   min-height: 100vh;
   padding: 25px;
+  transition: 0.4 ease-out;
+  color: black;
 }
 
 .app-body-rain {
-  background: radial-gradient(#a4a5ae 15%, #46acc2);
+  background-image: url('./assets/rain.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
+  min-height: 100vh;
+  padding: 25px;
+  image-rendering: auto;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
   transition: 0.4 ease-out;
 }
 
 .app-body-drizzle {
-  background: radial-gradient(#406e8e, #e8eef2);
+  background-image: url('./assets/drizzle.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
+  min-height: 100vh;
+  padding: 25px;
+  image-rendering: auto;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
   transition: 0.4 ease-out;
 }
 
 .app-body-cloudy {
-  background: radial-gradient(#8ea8c3 2%, #faf3dd 75%);
+  background-image: url('./assets/cloud.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
+  min-height: 100vh;
+  padding: 25px;
+  image-rendering: auto;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
   transition: 0.4 ease-out;
 }
 
 .app-body-thunderstorm {
-  background: radial-gradient(#2f394d, #c0bcb5);
+  background-image: url('./assets/thunderstorm.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
+  min-height: 100vh;
+  padding: 25px;
+  image-rendering: auto;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
   transition: 0.4 ease-out;
 }
 
 .app-body-main {
-  background-color: #ce796b;
+  background-image: url('./assets/main.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
+  min-height: 100vh;
+  padding: 25px;
+  image-rendering: auto;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
   transition: 0.4 ease-out;
 }
 
